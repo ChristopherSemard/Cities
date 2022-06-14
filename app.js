@@ -1,6 +1,7 @@
 let selectContinent = document.querySelector("#select-continent");
 let selectCountry = document.querySelector("#select-country");
 let citiesList = document.querySelector(".cities-list");
+let loader = document.querySelector(".loader");
 let cities;
 let countries;
 
@@ -72,6 +73,8 @@ function getCountries(cities) {
     return countries;
 }
 function displayCities(value) {
+    citiesList.style.display = "none";
+    loader.style.display = "block";
     while (citiesList.firstChild) {
         citiesList.removeChild(citiesList.firstChild);
     }
@@ -82,4 +85,8 @@ function displayCities(value) {
             citiesList.appendChild(newCity);
         }
     }
+    setTimeout(function () {
+        citiesList.style.display = "flex";
+        loader.style.display = "none";
+    }, 2000);
 }
