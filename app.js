@@ -30,6 +30,7 @@ function injectSelect(values, select, selectedValue) {
     let baseOption = document.createElement("option");
     baseOption.textContent = "Choose a country";
     baseOption.setAttribute("selected", true);
+    baseOption.setAttribute("disabled", true);
     select.appendChild(baseOption);
     // Ajout des pays
     for (const value of values) {
@@ -88,5 +89,5 @@ function displayCities(value) {
     setTimeout(function () {
         citiesList.style.display = "flex";
         loader.style.display = "none";
-    }, 2000);
+    }, 1000);
 }
